@@ -1,7 +1,7 @@
 package models
 
 type Employees struct {
-	Employees    []Employee `json:"employee,omitempty"`
+	Employees    []Employee `json:"employees,omitempty"`
 	ErrorMessage ErrorLog   `json:"ErrorMessage,omitempty"`
 }
 
