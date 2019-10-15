@@ -1,8 +1,8 @@
 package structs
 
 type Employees struct {
-	Employees    []Employee `json:"employees,omitempty"`
-	ErrorMessage ErrorLog   `json:"ErrorMessage,omitempty"`
+	Employees    []Employee     `json:"employees,omitempty"`
+	ErrorMessage ErrorContainer `json:"ErrorMessage,omitempty"`
 }
 
 type Employee struct {
@@ -11,7 +11,7 @@ type Employee struct {
 	ID        string `json:"id,omitempty"`
 }
 
-type ErrorLog struct {
+type ErrorContainer struct {
 	StatusCode int    `json:"statusCode,omitempty"`
 	RootCause  string `json:"rootCause,omitempty"`
 	Trace      string `json:"trace,omitempty"`
