@@ -1,4 +1,4 @@
-package models
+package structs
 
 type Employees struct {
 	Employees    []Employee `json:"employees,omitempty"`
@@ -12,6 +12,7 @@ type Employee struct {
 }
 
 type ErrorLog struct {
-	StatusCode string `json:"statusCode,omitempty"`
+	StatusCode int    `json:"statusCode,omitempty"`
 	RootCause  string `json:"rootCause,omitempty"`
+	Trace      string `json:"trace,omitempty"`
 }
