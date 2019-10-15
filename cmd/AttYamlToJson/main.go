@@ -1,9 +1,10 @@
 package main
 
 import (
+	"AttYamlToJson/pkg/converter"
 	"fmt"
-	"github.com/ghodss/yaml"
 	"io/ioutil"
+	"log"
 )
 
 func main() {
@@ -13,21 +14,12 @@ func main() {
 		fmt.Println("error in converting yaml file to bytes is ", err.Error())
 	}
 
-	var employee Employees
+	// convert yaml to json
+	response := converter.YamlToJson(rawData)
 
-	err = yaml.Unmarshal(rawData, &employee)
-	if err != nil {
-		fmt.Println("error in converting yaml to json is ", err.Error())
-	}
-
-	fmt.Println(employee)
+	log.Println("response is ", response)
 }
 
-type Employees struct {
-	Employees []Employee `json:employee`
-}
-type Employee struct {
-	FirstName string `json:firstName`
-	LastName  string `json:lastName`
-	ID        string `json:id`
+func UnMarhsalYaml() {
+
 }
