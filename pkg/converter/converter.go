@@ -3,16 +3,23 @@ package converter
 import (
 	"AttYamlToJson/pkg/constants"
 	"AttYamlToJson/pkg/structs"
-	"fmt"
 	"github.com/ghodss/yaml"
+	"github.com/sirupsen/logrus"
 	"net/http"
 )
 
-func YamlToJson(rawData []byte) structs.Employees {
+func YamlToJson(rawData []byte, logger *logrus.Logger) structs.Employees {
 	var employees structs.Employees
 
 	err := yaml.Unmarshal(rawData, &employees)
 	if err != nil {
+		// logging the error
+		logger.WithFields(logrus.Fields{
+			constants.RootCause:  err.Error(),
+			constants.Trace:      constants.SystemError,
+			constants.StatusCode: http.StatusInternalServerError,
+		}).Error()
+
 		return structs.Employees{
 			Employees: nil,
 			ErrorMessage: structs.ErrorContainer{
@@ -21,7 +28,7 @@ func YamlToJson(rawData []byte) structs.Employees {
 				Trace:      constants.SystemError,
 			},
 		}
-		fmt.Println("error in unmarshalling raw yaml data to json: ", err.Error())
+
 	}
 
 	// checking if there is no data
