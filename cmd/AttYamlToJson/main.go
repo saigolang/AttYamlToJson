@@ -1,13 +1,13 @@
 package main
 
 import (
-	"AttYamlToJson/pkg/constants"
-	"AttYamlToJson/pkg/converter"
-	"AttYamlToJson/pkg/logging"
-	"AttYamlToJson/pkg/structs"
 	"bytes"
 	"encoding/json"
 	"github.com/gorilla/mux"
+	"github.com/saigolang/AttYamlToJson/pkg/constants"
+	"github.com/saigolang/AttYamlToJson/pkg/converter"
+	"github.com/saigolang/AttYamlToJson/pkg/logging"
+	"github.com/saigolang/AttYamlToJson/pkg/structs"
 	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"log"

@@ -1,9 +1,9 @@
 package converter
 
 import (
-	"AttYamlToJson/pkg/constants"
-	"AttYamlToJson/pkg/structs"
 	"github.com/ghodss/yaml"
+	"github.com/saigolang/AttYamlToJson/pkg/constants"
+	"github.com/saigolang/AttYamlToJson/pkg/structs"
 	"github.com/sirupsen/logrus"
 	"net/http"
 )
